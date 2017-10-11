@@ -5,7 +5,8 @@ require_relative("album.rb")
 
 class Artist
 
-  attr_reader(:id, :name)
+  attr_reader(:id)
+  attr_accessor(:name)
 
   def initialize (artist)
     @id = artist['id'].to_i if artist['id']
@@ -33,6 +34,29 @@ class Artist
     values = [@id]
     list = SqlRunner.run(sql,values)
     return list.map {|album| Album.new(album)}
+  end
+
+  def delete()
+    sql = "DELETE FROM artist WHERE id = $1"
+    values = [@id]
+    name = @name
+    SqlRunner.run(sql,values)
+    return "#{name} was deleted"
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM artist"
+    values = []
+    SqlRunner.run(sql,values)
+    return "All artists cleared"
+  end
+
+  def update()
+    sql = " UPDATE artist SET(name)=($1) WHERE id = $2"
+    values = [@name, @id]
+    name = @name
+    SqlRunner.run(sql,values)
+    return "#{name} was updated"
   end
 
 
