@@ -7,8 +7,8 @@ artist_2 = Artist.new({'name'=> 'Moonspell'})
 artist_3 = Artist.new({'name'=> 'Sigur ros'})
 
 album_1 = Album.new({ 'title'=> 'Post orgasmic chill', 'genre'=>'Punk-rock', 'artist_id'=> artist_1.id})
-album_1 = Album.new({ 'title'=> 'Takk', 'genre'=>'alternative', 'artist_id'=> artist_3.id})
-album_1 = Album.new({ 'title'=> 'Night Eternal', 'genre'=>'metal', 'artist_id'=> artist_2.id})
+album_2 = Album.new({ 'title'=> 'Takk', 'genre'=>'alternative', 'artist_id'=> artist_3.id})
+album_3 = Album.new({ 'title'=> 'Night Eternal', 'genre'=>'metal', 'artist_id'=> artist_2.id})
 
 binding.pry
 
